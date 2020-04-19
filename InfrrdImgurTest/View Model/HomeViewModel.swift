@@ -21,7 +21,6 @@ class HomeViewModel
     var delegate:HomeViewModelDelegate?
     var currentYOffset: [CGFloat]?
 
-//    https://api.imgur.com/3/gallery/hot/viral/day/0?showViral=true&mature=false&album_previews=true
     func getMostViewed(page:Int)
     {
         var urlString = "https://api.imgur.com/3/gallery"
@@ -63,8 +62,8 @@ extension HomeViewModel: ImgurLayoutDelegate {
     _ collectionView: UICollectionView,
     heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
 
-    let height = memes[indexPath.item].cover_height
-    return CGFloat(height ?? 0)
+    let height = (memes[indexPath.item].cover_height ?? 0)/2
+    return CGFloat(height)
  
   }
 }
